@@ -6,6 +6,13 @@
 <hr>
 <div class="row">
   <div class="col-xs-12">
-    <app-recipe-item *ngFor="let recipeElement of recipes" [recipe]="recipeElement"></app-recipe-item>
+    <!-- Recipe Item Component with data Binding [recipe]
+    and event listener (recipeSelected) to pass selected recipe to 
+    parent component Recipes with onRecipeSelected
+    -->  
+    <app-recipe-item *ngFor="let recipeElement of recipes" 
+      [recipe]="recipeElement"
+      (recipeSelected)="onRecipeSelected(recipeElement)">
+    </app-recipe-item>
   </div>
 </div>
