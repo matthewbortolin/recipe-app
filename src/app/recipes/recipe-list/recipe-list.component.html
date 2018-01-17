@@ -11,8 +11,7 @@
     parent component Recipes with onRecipeSelected
     -->  
     <app-recipe-item *ngFor="let recipeElement of recipes" 
-      [recipe]="recipeElement"
-      (recipeSelected)="onRecipeSelected(recipeElement)">
+      [recipe]="recipeElement">
     </app-recipe-item>
   </div>
 </div>
