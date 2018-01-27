@@ -22,4 +22,11 @@ export class ShoppingListService {
     // Create an event to update the array of ingredients
     this.ingredientsChanged.emit(this.ingredients.slice());
   }
+
+  //Add muliple ingredients
+  addIngredients(ingredients: Ingredient[]) {
+    // Spread operator ... to make array list
+    this.ingredients.push(...ingredients);
+    this.ingredientsChanged.emit(this.ingredients.slice());
+  }
 }
