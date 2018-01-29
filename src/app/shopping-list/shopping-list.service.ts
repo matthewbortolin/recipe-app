@@ -1,10 +1,10 @@
-import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 import { Ingredient } from '../shared/ingredient.model';
 
 export class ShoppingListService {
 
   // Event to update ingredients list when a new ingredient is added
-  ingredientsChanged = new EventEmitter<Ingredient[]>();
+  ingredientsChanged = new Subject<Ingredient[]>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Oranges', 5),
@@ -20,13 +20,13 @@ export class ShoppingListService {
   addIngredient(ingredient: Ingredient) {
     this.ingredients.push(ingredient);
     // Create an event to update the array of ingredients
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
  
   //Add muliple ingredients
   addIngredients(ingredients: Ingredient[]) {
     // Spread operator ... to make array list
     this.ingredients.push(...ingredients);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.next(this.ingredients.slice());
   }
 }
