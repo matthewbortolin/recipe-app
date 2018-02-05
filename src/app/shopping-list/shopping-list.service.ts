@@ -19,7 +19,12 @@ export class ShoppingListService {
 
   // Add new ingredient
   addIngredient(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
+    if(this.ingredientExists(ingredient)) {
+        this.ingredients[this.index].quantity += ingredient.quantity;
+    }
+    else {
+      this.ingredients.push(ingredient);
+    }
     // Create an event to update the array of ingredients
     this.ingredientsChanged.next(this.ingredients.slice());
   }
