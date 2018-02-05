@@ -6,6 +6,7 @@ export class ShoppingListService {
   // Event to update ingredients list when a new ingredient is added
   ingredientsChanged = new Subject<Ingredient[]>();
   index: number;
+  startedEditing = new Subject<number>();
 
   private ingredients: Ingredient[] = [
     new Ingredient('Oranges', 5),

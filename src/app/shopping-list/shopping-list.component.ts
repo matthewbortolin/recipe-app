@@ -26,6 +26,10 @@ export class ShoppingListComponent implements OnInit, OnDestroy {
     });
   }
 
+  onEditItem(index: number) {
+    this.shopListService.startedEditing.next(index);
+  
+  }
   // Stop memory leaks by stopping subscription on page change
   ngOnDestroy() {
     this.subscription.unsubscribe();
